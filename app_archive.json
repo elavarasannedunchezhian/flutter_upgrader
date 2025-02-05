@@ -4,16 +4,16 @@
     "items": [
         {
             "version": "1.0.0",
-            "shortVersion": 1,
+            "shortVersion": 2,
             "changes": [
                 {
                     "type": "Updated to OG version",
-                    "message": "Fix bug #1"
+                    "message": "Fix bug #2"
                 }
             ],
-            "date": "2025-01-31",
-            "mandatory": false,
-            "url": "https://raw.githubusercontent.com/elavarasannedunchezhian/flutter_upgrader/main/dist/1/1.0.0%2B1-windows",
+            "date": "2025-02-05",
+            "mandatory": true,
+            "url": "https://raw.githubusercontent.com/elavarasannedunchezhian/flutter_upgrader/main/dist/1/1.0.0%2B2-windows",
             "platform": "windows"
         }
     ]
