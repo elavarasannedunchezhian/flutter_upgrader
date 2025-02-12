@@ -3,17 +3,45 @@
     "descriptipn": "example for checking the version of the app",
     "items": [
         {
-            "version": "1.0.0",
+            "version": "1.0.3",
+            "shortVersion": 3,
+            "changes": [
+                {
+                    "type": "Button color updated",
+                    "message": "Fix bug #3"
+                }
+            ],
+            "date": "2025-02-12",
+            "mandatory": true,
+            "url": "https://raw.githubusercontent.com/elavarasannedunchezhian/flutter_upgrader/main/dist/3/1.0.3%2B3-windows",
+            "platform": "windows"
+        },
+        {
+            "version": "1.0.2",
             "shortVersion": 2,
             "changes": [
                 {
-                    "type": "Updated to OG version",
+                    "type": "Debug banner removed",
                     "message": "Fix bug #2"
+                }
+            ],
+            "date": "2025-02-10",
+            "mandatory": true,
+            "url": "https://raw.githubusercontent.com/elavarasannedunchezhian/flutter_upgrader/main/dist/2/1.0.2%2B2-windows",
+            "platform": "windows"
+        },
+        {
+            "version": "1.0.1",
+            "shortVersion": 1,
+            "changes": [
+                {
+                    "type": "Updated to OG version",
+                    "message": "Fix bug #1"
                 }
             ],
             "date": "2025-02-05",
             "mandatory": true,
-            "url": "https://raw.githubusercontent.com/elavarasannedunchezhian/flutter_upgrader/main/dist/2/1.0.0%2B2-windows",
+            "url": "https://raw.githubusercontent.com/elavarasannedunchezhian/flutter_upgrader/main/dist/1/1.0.1%2B1-windows",
             "platform": "windows"
         }
     ]

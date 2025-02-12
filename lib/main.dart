@@ -1,6 +1,7 @@
 import 'package:desktop_updater/desktop_updater.dart';
 import 'package:desktop_updater/updater_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_upgrader/logger/log.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 void main() async {
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Upgrader Example',
       home: const MyHomePage(),
     );
@@ -44,17 +46,6 @@ class MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  /*static const appcastURL = 'https://raw.githubusercontent.com/elavarasannedunchezhian/donation_archive/main/app_cast.xml';
-  final updrader = Upgrader(
-    client: http.Client(),
-    clientHeaders: {},
-    debugDisplayAlways: true,
-    debugLogging: true,
-    storeController: UpgraderStoreController(
-      onWindows: () => UpgraderAppcastStore(appcastURL: appcastURL),
-    ),
-  );*/
-
   final appArchiveURL =  Uri.parse(
     'https://raw.githubusercontent.com/elavarasannedunchezhian/flutter_upgrader/main/app_archive.json',
   );
@@ -63,6 +54,8 @@ class MyHomePageState extends State<MyHomePage> {
   void initState() {
     super.initState();
     getVersion();
+    Log.initFile();
+    Log.appName = 'Flutter Upgrader';
     desktopUpdaterController = DesktopUpdaterController(
       appArchiveUrl: appArchiveURL,
     );
@@ -84,12 +77,17 @@ class MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Center(child: Text('Upgrader Example')),
       ),
-      body: DesktopUpdateWidget(
-        controller: desktopUpdaterController,
+      body: Theme(
+        data: ThemeData(
+          scaffoldBackgroundColor: Colors.blue,
+        ),
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              UpdateDialogListener(
+                controller: desktopUpdaterController,
+              ),
               const Text(
                 'You have pushed the button this many times:',
               ),
@@ -105,13 +103,19 @@ class MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-            onPressed: incrementCounter,
+            backgroundColor: Colors.teal,
+            onPressed: () { 
+              incrementCounter();
+            },
             tooltip: 'Increment',
             child: const Icon(Icons.add),
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10),
           FloatingActionButton(
-            onPressed: decrementCounter,
+            backgroundColor: Colors.teal,
+            onPressed: () {
+              decrementCounter();
+            },
             tooltip: 'Decrement',
             child: const Icon(Icons.remove),
           ),
