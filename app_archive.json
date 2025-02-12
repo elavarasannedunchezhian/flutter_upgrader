@@ -12,7 +12,7 @@
                 }
             ],
             "date": "2025-02-05",
-            "mandatory": true,
+            "mandatory": false,
             "url": "https://raw.githubusercontent.com/elavarasannedunchezhian/flutter_upgrader/main/dist/2/1.0.0%2B2-windows",
             "platform": "windows"
         }
